@@ -31,7 +31,16 @@ public abstract class MapPanel extends JPanel implements MapListener {
 	}
 	
 	protected Cell getCellFordirection(Direction direction) {
-		return direction == Direction.WEST ? Cell.LEFT : Cell.RIGHT;
+		if (direction == Direction.WEST) {
+			return Cell.LEFT;
+		}
+		if (direction == Direction.EAST) {
+			return Cell.RIGHT;
+		}
+		if (direction == Direction.NORTH) {
+			return Cell.UP;
+		}
+		return Cell.DOWN;
 	}
 	
 	protected Image createImage(Cell cell, int playerId) {
